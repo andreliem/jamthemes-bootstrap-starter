@@ -1,0 +1,36 @@
+{
+	"name": "jamthemes-bootstrap-starter",
+	"version": "0.0.1",
+	"description": "Bootstrap starter kit",
+	"author": "andreliem",
+	"scripts": {
+		"css:lint": "stylelint --config ./.stylelintrc --syntax scss \"scss/**/*.scss\" --cache --cache-location \"./.stylelintcache/\"",
+		"css:compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 assets/scss/main.scss assets/css/main.css",
+		"css:prefix": "postcss --config build/postcss.config.js --replace \"assets/css/*.css\" \"assets/css/!*.min.css\"",
+		"css:minify": "cleancss --level 1 --source-map --source-map-inline-sources --output assets/css/main.min.css assets/css/main.css",
+		"css:build": "npm run css:lint && npm run css:compile && npm run css:prefix && npm run css:minify",
+		"css:watch": "watch 'npm run css:build' assets/scss"
+	},
+	"private": true,
+	"devDependencies": {
+		"autoprefixer": "^8.0.0",
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.6.1",
+		"clean-css-cli": "^4.1.10",
+		"node-sass": "^4.7.2",
+		"npm-run-all": "^4.1.2",
+		"postcss-cli": "^5.0.0",
+		"stylelint": "^9.1.1",
+		"stylelint-config-recommended-scss": "^3.1.0",
+		"stylelint-config-standard": "^18.2.0",
+		"stylelint-order": "^0.8.1",
+		"stylelint-scss": "^2.4.0",
+		"watch": "^1.0.2"
+	},
+	"dependencies": {
+		"bootstrap": "^4.0.0",
+		"jquery": "^1.9.1",
+		"nodemon": "^1.17.1",
+		"popper.js": "^1.12.9"
+	}
+}
